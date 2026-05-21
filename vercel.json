@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd meeting-bingo && npm install && npm run build",
+  "outputDirectory": "meeting-bingo/dist",
+  "framework": "vite"
+}
