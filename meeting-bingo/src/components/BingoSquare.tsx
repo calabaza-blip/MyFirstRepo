@@ -17,7 +17,7 @@ export function BingoSquare({ square, isWinning, onClick }: BingoSquareProps) {
   }
 
   let cellClass =
-    'relative flex items-center justify-center rounded-lg border-2 text-center text-xs font-medium leading-tight transition-all duration-200 select-none ';
+    'relative flex items-center justify-center rounded-lg border-2 text-center font-medium leading-tight transition-all duration-200 select-none h-full w-full overflow-hidden ';
 
   if (isFreeSpace) {
     cellClass += 'bg-indigo-500 border-indigo-600 text-white cursor-default';
@@ -44,7 +44,12 @@ export function BingoSquare({ square, isWinning, onClick }: BingoSquareProps) {
       onKeyDown={handleKeyDown}
       className={cellClass}
     >
-      <span className="px-1 break-words w-full text-center">{isFreeSpace ? '⭐' : word}</span>
+      <span
+        title={isFreeSpace ? undefined : word}
+        className="px-0.5 w-full text-center whitespace-nowrap overflow-hidden text-ellipsis text-[10px] sm:text-xs"
+      >
+        {isFreeSpace ? '⭐' : word}
+      </span>
     </div>
   );
 }
